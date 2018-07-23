@@ -1,33 +1,52 @@
 import Link from 'next/link';
 
-const Navbar = () => (
-  <div>
-    <ul>
-      <li><Link href="/"><a>Home</a></Link></li>
-      <li><Link href="/about"><a>About</a></Link></li>
-    </ul>
+const Navbar = () => {
 
-    <style jsx>{`
-        ul {
-          background: #333;
-          color: white;
-          list-style: none;
-          display: flex;
-        }
+  const urls = {
+    'home': '/',
+    'about': '/about'
+  };
+  const backendURL = process.env.BACKEND_URL;
 
-        li {
-          font-size: 18px;
-          margin-right: 20px;
-        }
+  return (
+    <div>
+      <ul>
+        <li><Link href={urls.home}
+                  as={backendURL + urls.home}
+                  >
+              <a>Home</a>
+            </Link>
+        </li>
+        <li><Link href={urls.about}
+                  as={backendURL + urls.about}
+                  >
+              <a>About</a>
+            </Link>
+        </li>
+      </ul>
 
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
+      <style jsx>{`
+          ul {
+            background: #333;
+            color: white;
+            list-style: none;
+            display: flex;
+          }
 
-    `}</style>
+          li {
+            font-size: 18px;
+            margin-right: 20px;
+          }
 
-  </div>
-);
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+
+      `}</style>
+
+    </div>
+  )
+};
 
 export default Navbar;
