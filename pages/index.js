@@ -3,10 +3,6 @@ import Layout from '../components/Layout';
 import Prices from '../components/Prices';
 
 const Index = (props) => {
-  console.log(props);
-
-
-
   return (
     <Layout>
 
